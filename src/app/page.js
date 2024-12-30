@@ -16,7 +16,7 @@ export default function Home() {
     <div>
       <div className={styles[`todo-container`]}>
         <h1>To-Do list</h1>
-        <div className={styles.flex}>
+        <div className={`${styles.flex} ${styles["bg-blue"]}`}>
           <input
             type="text"
             placeholder="Add a new task"

@@ -8,3 +8,8 @@
 .flex {
   display: flex;
 }
+
+.bg-blue {
+  background-color: blue;
+  padding: 10px;
+}
