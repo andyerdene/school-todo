@@ -7,9 +7,23 @@
 }
 .flex {
   display: flex;
+  gap: 6px;
 }
 
 .bg-blue {
   background-color: blue;
   padding: 10px;
+}
+
+.filterButtons button {
+  padding: 4px 12px;
+  background-color: #f3f4f6;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.activeStyle {
+  background-color: #3c82f6 !important;
+  color: white;
 }
