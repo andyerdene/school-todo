@@ -6,6 +6,24 @@ import styles from "./page.module.css";
 //   isCompleted: false,
 // }
 
+//string array
+const todos = ["learn react", "learn nodejs"];
+//object array
+const todos1 = [
+  {
+    todo: "learn react",
+    isCompleted: false,
+  },
+  {
+    todos: "learn nodejs",
+    isCompleted: false,
+  },
+  {
+    todos: "learn nodejs 123",
+    isCompleted: false,
+  },
+];
+
 export default function Home() {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState();
