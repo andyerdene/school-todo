@@ -27,3 +27,7 @@
   background-color: #3c82f6 !important;
   color: white;
 }
+
+.completed {
+  color: red;
+}

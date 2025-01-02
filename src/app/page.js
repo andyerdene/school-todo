@@ -1,10 +1,14 @@
 "use client";
 import { useState } from "react";
 import styles from "./page.module.css";
+// {
+//   todo: "learn react",
+//   isCompleted: false,
+// }
 
 export default function Home() {
-  const [todos, setTodos] = useState(["a", "b"]);
-  const [newTodo, setNewTodo] = useState("");
+  const [todos, setTodos] = useState([]);
+  const [newTodo, setNewTodo] = useState();
   const [activeFilter, setActiveFilter] = useState("all");
 
   const addTodoHandler = () => {
@@ -12,6 +16,16 @@ export default function Home() {
   };
   const deleteHandler = () => {
     alert("are you sure to delete ?");
+  };
+
+  const toggleIsCompleted = (incomingTodo) => {
+    let changedTodos = todos.map((t) => {
+      if (t.todo === incomingTodo.todo) {
+        t.isCompleted = !t.isCompleted;
+      }
+      return t;
+    });
+    setTodos(changedTodos);
   };
 
   return (
@@ -22,7 +36,12 @@ export default function Home() {
           <input
             type="text"
             placeholder="Add a new task"
-            onChange={(e) => setNewTodo(e.target.value)}
+            onChange={(e) =>
+              setNewTodo({
+                todo: e.target.value,
+                isCompleted: false,
+              })
+            }
           />
           <button onClick={addTodoHandler}>Add</button>
         </div>
@@ -48,7 +67,18 @@ export default function Home() {
         </div>
         <div>
           {todos.map((todo, index) => {
-            return <p key={index}>{todo}</p>;
+            return (
+              <div className={styles.flex} key={index}>
+                <input
+                  type="checkbox"
+                  onClick={() => toggleIsCompleted(todo)}
+                  checked={todo.isCompleted}
+                />
+                <p className={todo.isCompleted ? styles.completed : ""}>
+                  {todo.todo}
+                </p>
+              </div>
+            );
           })}
         </div>
       </div>
